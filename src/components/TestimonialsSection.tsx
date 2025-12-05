@@ -32,7 +32,7 @@ const TestimonialsSection = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               What Participants{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#f27066] to-[#f27066]/50 bg-clip-text text-transparent">
                 Say
               </span>
             </h2>
@@ -45,7 +45,7 @@ const TestimonialsSection = () => {
                 key={index}
                 className="p-6 shadow-soft hover:shadow-strong transition-smooth border-2 relative"
               >
-                <Quote className="absolute top-4 right-4 w-10 h-10 text-primary/20" />
+                <Quote className="absolute top-4 right-4 w-10 h-10 text-[#f27066]/20" />
                 
                 <div className="relative z-10 space-y-4">
                   <p className="text-lg text-foreground leading-relaxed italic">
@@ -53,8 +53,8 @@ const TestimonialsSection = () => {
                   </p>
                   
                   <div className="flex items-center gap-3 pt-4 border-t border-border">
-                    <Avatar className="w-12 h-12 border-2 border-primary/20">
-                      <AvatarFallback className="gradient-primary text-primary-foreground font-bold">
+                    <Avatar className="w-12 h-12 border-2 border-[#f27066]/20">
+                      <AvatarFallback className="bg-[#f27066] text-white font-bold">
                         {testimonial.initial}
                       </AvatarFallback>
                     </Avatar>
