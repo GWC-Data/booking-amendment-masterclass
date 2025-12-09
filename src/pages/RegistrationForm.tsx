@@ -26,11 +26,9 @@ interface FormErrors {
 }
 
 export default function RegistrationForm() {
+  const HOST = "https://zoom-auth-3rjp.onrender.com";
+  // const HOST = "http://localhost:3001";
   const navigate = useNavigate();
-  const SUPABASE_URL = "https://tgiqajkenaztyyghqhkt.supabase.co";
-  const SUPABASE_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRnaXFhamtlbmF6dHl5Z2hxaGt0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ5MTcxODcsImV4cCI6MjA4MDQ5MzE4N30.vt0TESifCFtMeYWUAaPKRfWhJIRolQ-Qo3qbYZiiTc0";
-
   const [loading, setLoading] = useState(false);
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -93,38 +91,53 @@ export default function RegistrationForm() {
       setLoading(true);
       try {
         const submitData = {
-          first_name: formData.firstName,
-          last_name: formData.lastName,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
           email: formData.email,
-          mobile_number: formData.mobileNumber,
+          mobileNumber: formData.mobileNumber,
           organization: formData.organization,
-          job_title: formData.jobTitle,
+          jobTitle: formData.jobTitle,
           industry: formData.industry,
-          purpose_for_joining: formData.purposeForJoining,
-          created_at: new Date().toISOString(),
+          purposeForJoining: formData.purposeForJoining,
         };
 
-        // Insert data into Supabase using REST API
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/registrations`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            apikey: SUPABASE_KEY,
-            Authorization: `Bearer ${SUPABASE_KEY}`,
-          },
-          body: JSON.stringify(submitData),
-        });
+        fetch(`${HOST}/zoom/token`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // register for the meeting
+            const token = data.access_token;
+            const meeting_id = "84054283097";
 
-        if (!response.ok) {
-          const error = await response.json();
-          console.error("Supabase error:", error);
-          setLoading(false);
-          alert("Error saving data. Please try again.");
-          return;
-        }
-
-        navigate("/success");
-        setLoading(false);
+            fetch(`${HOST}/zoom/register`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                meeting_id: meeting_id,
+                token: token,
+                formData: submitData,
+              }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                navigate("/success");
+                setLoading(false);
+              })
+              .catch((error) => {
+                console.error("Error registering for Zoom meeting:", error);
+                alert("Error registering for Zoom meeting. Please try again.");
+                setLoading(false);
+              });
+          })
+          .catch((error) => {
+            console.error("Error fetching Zoom token:", error);
+            alert("Error fetching Zoom token. Please try again.");
+            setLoading(false);
+          });
       } catch (error) {
         console.error("Error submitting form:", error);
         alert("Error submitting form. Please try again.");
@@ -166,9 +179,7 @@ export default function RegistrationForm() {
             <h1 className="text-2xl font-bold text-gray-800">
               GWC's Webinar On AI-Powered Booking Amendment
             </h1>
-            <p className="text-gray-600 mt-2">
-              Thursday, 18 Dec, 8:00 PM IST
-            </p>
+            <p className="text-gray-600 mt-2">Thursday, 18 Dec, 8:00 PM IST</p>
           </div>
 
           <div className="px-10 pb-8">
