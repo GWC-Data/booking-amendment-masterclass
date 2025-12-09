@@ -358,7 +358,7 @@ export default function RegistrationForm() {
                 <div className="w-full">
                   <button
                     disabled
-                    className="w-full bg-[#f27066] text-white font-medium py-2 px-4 rounded transition opacity-50 cursor-not-allowed"
+                    className="w-full bg-primary text-white font-medium py-2 px-4 rounded transition opacity-50 cursor-not-allowed"
                   >
                     <Loader2 className="animate-spin mr-2 h-5 w-5 inline-block" />
                     Registering...
@@ -368,7 +368,7 @@ export default function RegistrationForm() {
                 <div className="w-full">
                   <button
                     onClick={handleRegister}
-                    className="w-full bg-[#f27066] text-white font-medium py-2 px-4 rounded transition"
+                    className="w-full bg-primary text-white font-medium py-2 px-4 rounded transition"
                   >
                     Register
                   </button>

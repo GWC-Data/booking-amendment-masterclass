@@ -9,7 +9,7 @@ const VideoSection = () => {
           {/* Title */}
           <h2 className="text-4xl md:text-5xl font-bold">
             A Sneak Peek Into the{" "}
-            <span className="bg-gradient-to-r from-[#f27066] to-[#f27066]/50 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
               Future of Logistics
             </span>
           </h2>

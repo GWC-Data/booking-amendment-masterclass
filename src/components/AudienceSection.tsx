@@ -1,7 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Ship, TruckIcon, Sparkles, Headphones, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "./ui/button";
 
 const audiences = [
   {
@@ -34,8 +33,8 @@ const AudienceSection = () => {
           {/* Title */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Who This Is{" "}
-              <span className="bg-gradient-to-r from-[#f27066] to-[#f27066]/50 bg-clip-text text-transparent">
+              Who this is{" "}
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
                 For
               </span>
             </h2>
@@ -48,11 +47,11 @@ const AudienceSection = () => {
               return (
                 <Card 
                   key={index}
-                  className="p-6 shadow-soft hover:shadow-strong transition-smooth hover:scale-105 border-2 hover:border-[#f27066]/30 group bg-background"
+                  className="p-6 shadow-soft hover:shadow-strong transition-smooth hover:scale-105 border-2 hover:border-primary/30 group bg-background"
                 >
                   <div className="flex flex-col items-center text-center gap-4 h-full">
-                    <div className="w-16 h-16 rounded-full bg-[#f27066] flex items-center justify-center shadow-soft group-hover:shadow-glow transition-smooth">
-                      <Icon className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 rounded-full gradient-primary flex items-center justify-center shadow-soft group-hover:shadow-glow transition-smooth">
+                      <Icon className="w-8 h-8 text-primary-foreground" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-bold mb-2">{audience.title}</h3>
@@ -65,19 +64,19 @@ const AudienceSection = () => {
               );
             })}
           </div>
-
-           {/* Decorative Divider */}
-          <div className="mt-10 flex items-center justify-center">
-            <div className="h-1 w-32 bg-[#f27066] rounded-full" />
+          
+          {/* Decorative Divider */}
+          <div className="mt-16 flex items-center justify-center">
+            <div className="h-1 w-32 gradient-primary rounded-full" />
           </div>
 
-           <div className="mt-10 flex items-center justify-center">
+          <div className="mt-10 flex items-center justify-center">
             <Link
               to="/registration"
               target="_blank"
             >
               <button 
-                className="group font-bold bg-gradient-to-br from-[#f27066]/100 to-[#f27066]/60 text-white hover:text-white px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2 justify-center h-14 md:text-lg text-md"
+                className="group font-bold bg-gradient-to-br from-primary/100 to-primary/60 text-white hover:text-white px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2 justify-center h-14 md:text-lg text-md"
               >
                 Lock In Your Seat Now
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

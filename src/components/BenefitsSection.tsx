@@ -42,8 +42,8 @@ const BenefitsSection = () => {
           {/* Title */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Why You Should{" "}
-              <span className="bg-gradient-to-r from-[#f27066] to-[#f27066]/50 bg-clip-text text-transparent">
+              Why you should{" "}
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
                 Join
               </span>
             </h2>
@@ -56,12 +56,12 @@ const BenefitsSection = () => {
               return (
                 <Card 
                   key={index}
-                  className="p-6 shadow-soft hover:shadow-strong transition-smooth hover:scale-105 border-2 hover:border-[#f27066]/30 group"
+                  className="p-6 shadow-soft hover:shadow-strong transition-smooth hover:scale-105 border-2 hover:border-primary/30 group"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex flex-col items-start gap-4">
-                    <div className="w-14 h-14 rounded-xl bg-[#f27066] flex items-center justify-center shadow-soft group-hover:shadow-glow transition-smooth">
-                      <Icon className="w-7 h-7 text-white" />
+                    <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center shadow-soft group-hover:shadow-glow transition-smooth">
+                      <Icon className="w-7 h-7 text-primary-foreground" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>

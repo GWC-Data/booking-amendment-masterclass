@@ -1,7 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Bot, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "./ui/button";
 
 const AboutSection = () => {
   return (
@@ -12,7 +11,7 @@ const AboutSection = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Reimagining Booking Amendments with{" "}
-              <span className="bg-gradient-to-r from-[#f27066] to-[#f27066]/50 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
                 AI
               </span>
             </h2>
@@ -24,7 +23,7 @@ const AboutSection = () => {
             <Card className="p-8 shadow-soft hover:shadow-strong transition-smooth h-full border-2">
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center flex-shrink-0">
-                  <Bot className="w-6 h-6 text-[#f27066]" />
+                  <Bot className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold mb-2">The Challenge</h3>
@@ -37,10 +36,10 @@ const AboutSection = () => {
             </Card>
             
             {/* Right Column - The Solution */}
-            <Card className="p-8 gradient-soft shadow-soft hover:shadow-strong transition-smooth h-full border-2 border-[#f27066]/20">
+            <Card className="p-8 gradient-soft shadow-soft hover:shadow-strong transition-smooth h-full border-2 border-primary/20">
               <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-[#f27066] flex items-center justify-center flex-shrink-0">
-                  <Zap className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+                  <Zap className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold mb-2">The Solution</h3>
@@ -56,20 +55,19 @@ const AboutSection = () => {
           </div>
         </div>
 
-         <div className="mt-10 flex items-center justify-center">
+        <div className="mt-10 flex items-center justify-center">
             <Link
               to="/registration"
               target="_blank"
             >
               <button
-                className="group font-bold bg-gradient-to-br from-[#f27066]/100 to-[#f27066]/60 text-white hover:text-white px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2 justify-center h-14 md:text-lg text-md"
+                className="group font-bold bg-gradient-to-br from-primary/100 to-primary/60 text-white hover:text-white px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2 justify-center h-14 md:text-lg text-md"
               >
                  Claim Your Spot Now
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </Link>
            </div>
-
       </div>
     </section>
   );

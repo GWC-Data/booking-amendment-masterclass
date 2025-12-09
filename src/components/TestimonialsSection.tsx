@@ -5,22 +5,22 @@ import { Quote } from "lucide-react";
 const testimonials = [
   {
     quote: "This session showed us how AI can simplify one of our most complex workflows.",
-    author: "Operations Manager",
-    company: "Logistics",
-    initial: "O",
   },
   {
     quote: "Clear, hands-on, and extremely relevant for our booking teams.",
-    author: "Global Booking Desk Lead",
-    company: "Freight Company",
-    initial: "G",
   },
   {
     quote: "The bonus agents helped us experiment instantly.",
-    author: "Digital Transformation Manager",
-    company: "Supply Chain",
-    initial: "D",
   },
+  {
+    quote: "The practical examples made it incredibly easy to understand how AI can be applied to our daily booking operations.",
+  },
+  {
+    quote: "I was amazed at how quickly we could build a working workflow—this wasn’t just theory, it was real execution.",
+  },
+  {
+    quote: "The session opened our eyes to automation possibilities we never thought were achievable with our current systems.",
+  }
 ];
 
 const TestimonialsSection = () => {
@@ -32,7 +32,7 @@ const TestimonialsSection = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               What Participants{" "}
-              <span className="bg-gradient-to-r from-[#f27066] to-[#f27066]/50 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
                 Say
               </span>
             </h2>
@@ -45,24 +45,12 @@ const TestimonialsSection = () => {
                 key={index}
                 className="p-6 shadow-soft hover:shadow-strong transition-smooth border-2 relative"
               >
-                <Quote className="absolute top-4 right-4 w-10 h-10 text-[#f27066]/20" />
+                <Quote className="absolute top-4 right-4 w-10 h-10 text-primary/20" />
                 
                 <div className="relative z-10 space-y-4">
                   <p className="text-lg text-foreground leading-relaxed italic">
                     "{testimonial.quote}"
                   </p>
-                  
-                  <div className="flex items-center gap-3 pt-4 border-t border-border">
-                    <Avatar className="w-12 h-12 border-2 border-[#f27066]/20">
-                      <AvatarFallback className="bg-[#f27066] text-white font-bold">
-                        {testimonial.initial}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <p className="font-semibold text-foreground">{testimonial.author}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.company}</p>
-                    </div>
-                  </div>
                 </div>
               </Card>
             ))}

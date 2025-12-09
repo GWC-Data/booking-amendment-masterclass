@@ -37,7 +37,7 @@ const FAQSection = () => {
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Frequently Asked{" "}
-              <span className="bg-gradient-to-r from-[#f27066] to-[#f27066]/50 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
                 Questions
               </span>
             </h2>
@@ -51,7 +51,7 @@ const FAQSection = () => {
                 value={`item-${index}`}
                 className="bg-background border-2 border-border rounded-lg px-6 shadow-soft hover:shadow-strong transition-smooth"
               >
-                <AccordionTrigger className="text-left text-lg font-semibold hover:text-[#f27066]">
+                <AccordionTrigger className="text-left text-lg font-semibold hover:text-primary">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed">

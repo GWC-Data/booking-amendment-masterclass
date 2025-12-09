@@ -9,7 +9,7 @@ const SuccessPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f27066]/50 to-secondary flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-primary/50 to-secondary flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow p-8 md:px-6 pt-10 pb-6 max-w-lg w-full text-center">
         {/* Success Icon */}
         <div className="mb-6 flex justify-center">
@@ -26,13 +26,13 @@ const SuccessPage = () => {
          Welcome to the AI-Powered Booking Amendment Masterclass
         </p>
         <p className="text-gray-500 text-sm mb-8">
-          You're all set! You'll discover <b className="text-[#f27066]">how AI can automate booking amendments and build your first intelligent workflow </b> completely free.
+          You're all set! You'll discover <b className="text-primary">how AI can automate booking amendments and build your first intelligent workflow </b> completely free.
         </p>
 
         {/* Back to Homepage Button */}
         <button
           onClick={handleBackToHome}
-          className="w-full bg-[#f27066] hover:bg-[#f27066] text-white font-semibold py-3 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-105"
+          className="w-full bg-primary hover:bg-primary text-white font-semibold py-3 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-105"
         >
           Back to Home
         </button>
