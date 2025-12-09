@@ -104,6 +104,7 @@ export default function RegistrationForm() {
         fetch(`${HOST}/zoom/token`, {
           method: "GET",
           headers: { "Content-Type": "application/json" },
+          credentials: "include",
         })
           .then((res) => res.json())
           .then((data) => {
@@ -116,6 +117,7 @@ export default function RegistrationForm() {
               headers: {
                 "Content-Type": "application/json",
               },
+              credentials: "include",
               body: JSON.stringify({
                 meeting_id: meeting_id,
                 token: token,
