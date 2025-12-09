@@ -33,14 +33,14 @@ export default function RegistrationForm() {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [formData, setFormData] = useState<FormData>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    mobileNumber: "",
-    organization: "",
-    jobTitle: "",
-    industry: "",
-    purposeForJoining: "",
+     firstName: "",
+     lastName: "",
+     email: "",
+     mobileNumber: "",
+     industry: "",
+     jobTitle: "",
+     organization: "",
+     purposeForJoining: ""
   });
 
   const handleChange = (
