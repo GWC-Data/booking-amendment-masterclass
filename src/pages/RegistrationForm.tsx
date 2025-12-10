@@ -2,6 +2,15 @@ import React, { useState } from "react";
 import backgroundImage from "../assets/bg.png";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "../components/ui/alert-dialog";
 
 interface FormData {
   firstName: string;
@@ -32,6 +41,7 @@ export default function RegistrationForm() {
   const [loading, setLoading] = useState(false);
 
   const [errors, setErrors] = useState<FormErrors>({});
+  const [apiError, setApiError] = useState<string | null>(null);
   const [formData, setFormData] = useState<FormData>({
      firstName: "",
      lastName: "",
@@ -89,6 +99,7 @@ export default function RegistrationForm() {
   const handleRegister = async () => {
     if (validateForm()) {
       setLoading(true);
+      setApiError(null);
       try {
         const submitData = {
           firstName: formData.firstName,
@@ -124,14 +135,26 @@ export default function RegistrationForm() {
                 formData: submitData,
               }),
             })
-              .then((res) => res.json())
+              .then(async (res) => {
+                const data = await res.json();
+                if (!res.ok) {
+                  if (res.status === 429) {
+                    throw new Error(
+                      "You have exceeded the daily registration limit. Please try again tomorrow."
+                    );
+                  }
+                  throw new Error(data.message || "Registration failed");
+                }
+                return data;
+              })
               .then((data) => {
                 navigate("/success");
                 setLoading(false);
               })
               .catch((error) => {
                 console.error("Error registering for Zoom meeting:", error);
-                alert("Error registering for Zoom meeting. Please try again.");
+                setApiError(error.message);
+                // alert("Error registering for Zoom meeting. Please try again.");
                 setLoading(false);
               });
           })
@@ -365,6 +388,27 @@ export default function RegistrationForm() {
                 </p>
               )}
             </div>
+
+            {/* {apiError && (
+              <div className="mb-4 p-4 text-red-700 bg-red-100 rounded border border-red-400">
+                {apiError}
+              </div>
+            )} */}
+
+            <AlertDialog open={!!apiError} onOpenChange={() => setApiError(null)}>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Registration Error</AlertDialogTitle>
+                  <AlertDialogDescription>{apiError}</AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogAction onClick={() => setApiError(null)}>
+                    OK
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+
 
             <div className="flex gap-4">
               {loading ? (
