@@ -121,7 +121,7 @@ export default function RegistrationForm() {
           .then((data) => {
             // register for the meeting
             const token = data.access_token;
-            const meeting_id = "84054283097";
+            const meeting_id = "82808613395";
 
             fetch(`${HOST}/zoom/register`, {
               method: "POST",
